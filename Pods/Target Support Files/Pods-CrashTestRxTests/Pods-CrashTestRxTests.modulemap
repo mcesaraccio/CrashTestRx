@@ -1,0 +1,6 @@
+module Pods_CrashTestRxTests {
+  umbrella header "Pods-CrashTestRxTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
