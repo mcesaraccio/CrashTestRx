@@ -1,0 +1,35 @@
+(lldb) bt
+* thread #1, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x9)
+    frame #0: 0x00007fff50ffce17 libswiftCore.dylib`swift_checkMetadataState + 375
+    frame #1: 0x00007fff51000c27 libswiftCore.dylib`checkTransitiveCompleteness(swift::TargetMetadata<swift::InProcess> const*)::$_18::operator()(swift::TargetMetadata<swift::InProcess> const*) const + 119
+    frame #2: 0x00007fff510009bc libswiftCore.dylib`bool findAnyTransitiveMetadata<checkTransitiveCompleteness(swift::TargetMetadata<swift::InProcess> const*)::$_18&>(swift::TargetMetadata<swift::InProcess> const*, checkTransitiveCompleteness(swift::TargetMetadata<swift::InProcess> const*)::$_18&) + 76
+    frame #3: 0x00007fff510008b6 libswiftCore.dylib`checkTransitiveCompleteness(swift::TargetMetadata<swift::InProcess> const*) + 150
+    frame #4: 0x00007fff51001488 libswiftCore.dylib`swift::MetadataCacheEntryBase<(anonymous namespace)::SingletonMetadataCacheEntry, int>::doInitialization(swift::ConcurrencyControl&, swift::MetadataCompletionQueueEntry*, swift::MetadataRequest) + 424
+    frame #5: 0x00007fff50ff7288 libswiftCore.dylib`swift_getSingletonMetadata + 936
+    frame #6: 0x0000000101d363e8 RxSwift`type metadata accessor for MainScheduler at <compiler-generated>:0
+    frame #7: 0x0000000101d37a9c RxSwift`ObjC metadata update function for MainScheduler at <compiler-generated>:0
+    frame #8: 0x00007fff50866884 libobjc.A.dylib`realizeClassMaybeSwiftMaybeRelock(objc_class*, mutex_tt<false>&, bool) + 96
+    frame #9: 0x00007fff5086ca9a libobjc.A.dylib`realizeAllClasses() + 108
+    frame #10: 0x00007fff5086ee7f libobjc.A.dylib`objc_copyClassList + 31
+    frame #11: 0x0000000102328a5f XCTest`+[XCTestCase(RuntimeUtilities) _allSubclasses] + 64
+    frame #12: 0x0000000102328b97 XCTest`+[XCTestCase(RuntimeUtilities) allSubclasses] + 20
+    frame #13: 0x00000001022ba6ac XCTest`+[XCTestSuite _suiteForBundleCache] + 213
+    frame #14: 0x00000001022bcee1 XCTest`-[XCTestSuite _initWithTestConfiguration:] + 554
+    frame #15: 0x00000001022bd896 XCTest`+[XCTestSuite testSuiteForTestConfiguration:] + 53
+    frame #16: 0x000000010233d3f3 XCTest`__44-[XCTTestRunSession runTestsAndReturnError:]_block_invoke + 96
+    frame #17: 0x000000010233d541 XCTest`__44-[XCTTestRunSession runTestsAndReturnError:]_block_invoke.84 + 118
+    frame #18: 0x00000001022d5e83 XCTest`-[XCTestObservationCenter _observeTestExecutionForBlock:] + 588
+    frame #19: 0x000000010233d1fd XCTest`-[XCTTestRunSession runTestsAndReturnError:] + 623
+    frame #20: 0x000000010229f6d7 XCTest`-[XCTestDriver runTestsAndReturnError:] + 456
+    frame #21: 0x000000010232a6e4 XCTest`_XCTestMain + 2484
+    frame #22: 0x0000000101739be7 libXCTestBundleInject.dylib`__RunTests_block_invoke_2 + 13
+    frame #23: 0x00007fff23b0d09c CoreFoundation`__CFRUNLOOP_IS_CALLING_OUT_TO_A_BLOCK__ + 12
+    frame #24: 0x00007fff23b0c808 CoreFoundation`__CFRunLoopDoBlocks + 312
+    frame #25: 0x00007fff23b0766e CoreFoundation`__CFRunLoopRun + 1246
+    frame #26: 0x00007fff23b06e66 CoreFoundation`CFRunLoopRunSpecific + 438
+    frame #27: 0x00007fff38346bb0 GraphicsServices`GSEventRunModal + 65
+  * frame #28: 0x00007fff47578dd0 UIKitCore`UIApplicationMain + 1621
+    frame #29: 0x000000010167fbeb CrashTestRx`main at AppDelegate.swift:12:7
+    frame #30: 0x00007fff516ecd29 libdyld.dylib`start + 1
+    frame #31: 0x00007fff516ecd29 libdyld.dylib`start + 1
+(lldb) 
